@@ -11,7 +11,7 @@ public class UserHelper extends BaseHelper {
     }
 
     public boolean isLogOutLinkPresent() {
-        return isElementPresent(By.cssSelector("[href='/logout']"));
+        return isElementPresent(By.xpath("//a[@href='/logout']"));
     }
 
     public void clickRegisterButton() {
@@ -31,7 +31,7 @@ public class UserHelper extends BaseHelper {
     }
 
     public void clickLogOutLink() {
-        click(By.xpath("[href='/logout']"));
+        click(By.xpath("//a[@href='/logout']"));
     }
 
     public boolean isLoginLinkPresent() {
