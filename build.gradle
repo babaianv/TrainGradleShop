@@ -19,12 +19,28 @@ test {
     useTestNG()
 }
 
-task qa(type:Test) {
-
+task qa(type: Test) {
     useTestNG()
-
     if (project.hasProperty('browser')) {
         systemProperty 'browser', "${browser}"
     }
+}
 
+task qa1(type:Test) {
+    useTestNG() {
+        def suite1 = project.hasProperty("suite1")
+        def suite2 = project.hasProperty("suite2")
+
+        if (suite1) {
+            suites 'src/test/resources/testng.xml'
+        }else if (suite2) {
+            suites 'src/test/resources/regression.xml'
+        }else{
+            println "Ни один из параметров suite1 или suite2 не указан"
+        }
+
+        if (project.hasProperty('browser')) {
+            systemProperty 'browser', "${browser}"
+        }
+    }
 }

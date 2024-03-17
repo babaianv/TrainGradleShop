@@ -18,34 +18,35 @@ import java.util.List;
 
 public class RegisterUserTests extends TestBase{
 
-//    @BeforeMethod
-//    public void precondition(){
-//        if (!app.getUserHelper().isLogOutLinkPresent()){
-//            app.getUserHelper().clickLogOutLink();
-//        }
-//    }
+    @BeforeMethod
+    public void precondition(){
+        if (!app.getUserHelper().isLoginLinkPresent()) {
+            app.getUserHelper().clickLogOutLink();
+        }
+    }
 
 
 
-//    @Test
-//    public void createNewUserTest(){
-//        app.getUserHelper().clickRegisterLink();
-//        app.getUserHelper().fillRegisterForm(new User()
-//                .setFirstName("Sinna")
-//                .setLastName("Smith")
-//                .setEmail("simma123467!@gmail.com")
-//                .setPassword("Qwerty1234!")
-//                .setConfirmPassword("Qwerty1234!"));
-//
-//        app.getUserHelper().clickRegisterButton();
-//
-//        Assert.assertTrue(app.getUserHelper().isLogOutLinkPresent());
-//
-//    }
-//
-//
-//
-//
+
+    @Test
+    public void createNewUserTest(){
+        app.getUserHelper().clickRegisterLink();
+        app.getUserHelper().fillRegisterForm(new User()
+                .setFirstName("Janna")
+                .setLastName("Smith")
+                .setEmail("janna12346@gmail.com")
+                .setPassword("Qwerty1234!")
+                .setConfirmPassword("Qwerty1234!"));
+
+        app.getUserHelper().clickRegisterButton();
+
+        Assert.assertTrue(app.getUserHelper().isLogOutLinkPresent());
+
+    }
+
+
+
+
 //    @Test(dataProvider = "registerUsersFromCSV_File", dataProviderClass =  DataProvider.class)
 //    public void addUsersFromCSVFilePositiveTest(User user){
 //        app.getUserHelper().clickRegisterLink();
@@ -57,24 +58,16 @@ public class RegisterUserTests extends TestBase{
 //
 //    }
 
-    @BeforeMethod
-    public void precondition(){
-        if (!app.getUserHelper().isLoginLinkPresent()) {
-            app.getUserHelper().clickLogOutLink();
-        }
-    }
 
-
-
-    @Test(dataProvider = "registerUsersWithCSV", dataProviderClass =  DataProviders.class)
-    public void createNewAccountPositiveTestFromDataProviderWithFile(User user) {
-
-        app.getUserHelper().clickRegisterLink();
-        app.getUserHelper().fillRegisterForm(user);
-        app.getUserHelper().clickRegisterButton();
-        Assert.assertTrue(app.getUserHelper().isLogOutLinkPresent());
-        app.getUserHelper().clickLogOutLink();
-    }
+//    @Test(dataProvider = "registerUsersWithCSV", dataProviderClass =  DataProviders.class)
+//    public void createNewAccountPositiveTestFromDataProviderWithFile(User user) {
+//
+//        app.getUserHelper().clickRegisterLink();
+//        app.getUserHelper().fillRegisterForm(user);
+//        app.getUserHelper().clickRegisterButton();
+//        Assert.assertTrue(app.getUserHelper().isLogOutLinkPresent());
+//        app.getUserHelper().clickLogOutLink();
+//    }
 
 
 }
